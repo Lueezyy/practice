@@ -2,17 +2,17 @@ import random
 
 def battle(choice, botChoice):
     if choice == botChoice:
-        print("It is a draw!")
+        print(f"It is a draw! You both picked {choices[choice]}!")
     elif choice > botChoice:
         if choice - botChoice > 1:
-            print("The bot wins!")
+            print(f"The bot wins! {choices[botChoice].title()} beats {choices[choice]}!")
         else:
-            print("You win!")
+            print(f"You win! {choices[choice].title()} beats {choices[botChoice]}!")
     else:
         if botChoice - choice > 1:
-            print("You win!")
+            print(f"You win! {choices[choice].title()} beats {choices[botChoice]}!")
         else:
-            print("The bot wins!")
+            print(f"The bot wins! {choices[botChoice].title()} beats {choices[choice]}!")
 
 choices = ["rock", "paper", "scissors"]
 print("Let's play rock paper scissors!")
