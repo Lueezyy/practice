@@ -1,5 +1,12 @@
 import numpy as np
 
+def make_array():
+    arr = np.zeros((3, 3), dtype=float)
+    for i in range(0, 3):
+        for j in range(0, 3):
+            arr[i,j] =  2 * np.random.randint(1, 5)
+    return arr
+
 def g_interchange(arr):
     return arr
 
@@ -18,8 +25,19 @@ def ga_solve(arr):
             g_add(arr)
     return arr
 
-arr = [[3, 4, 5], [6, 7, 8]]
-arr = np.array(arr, float)
+arr = make_array()
+
 m, n = np.shape(arr)
-print(ga_solve(arr))
-print(m, n)
+my = 0
+i = 1
+print(arr)
+while (my < m):
+    arr[my] = 1 / arr[my, my] * arr[my]
+    print(arr)
+    while (my + i < m):
+        arr[my + i] = arr[my + i] + -1 * arr[my+i, my] * arr[my]
+        print(arr)
+        i += 1
+    i = 1
+    my += 1
+print(arr)
